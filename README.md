@@ -1,2 +1,2 @@
 # WeatherApp
-Nice WeatherApp
+Nice WeatherApp 🍕
