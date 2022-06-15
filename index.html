@@ -1,9 +1,34 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
-<body>
 
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
+	<head>
+	
+		<meta charset="utf-8">
 
-</body>
-</html> 
+		<title>SussyBaka</title>
+		
+	</head>
+	
+	<body>
+	
+		<pre id="json"></pre>
+
+		<script type="text/javascript">
+		
+			var apiUrl = 'http://api.openweathermap.org/data/2.5/air_pollution/forecast?lat=53.46919&lon=7.48232&appid=bff1c970eb02f1a1ac915c9bf9c6ce9b';
+			fetch(apiUrl).then(response => {
+				return response.json();
+			}).then(data => {
+	
+			document.getElementById("json").textContent = JSON.stringify(data, undefined, 2);
+	
+			}).catch(err => {
+	
+			alert('Sussy Error Lol');
+
+			});
+		</script>
+
+	</body>
+	
+</html>
