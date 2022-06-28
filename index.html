@@ -1,20 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
+    <head>
 
-	<head>
-	
-		<meta charset="utf-8">
+        <script src="https://kit.fontawesome.com/0f85b8ea72.js" crossorigin="anonymous"></script>
 
-		<script type="text/javascript" src="dynamic.js"></script>
-		
-		<title>SussyBaka</title>
-		
-	</head>
-	
-	<body onload="myFunction()">
-	
-		<pre id="json"></pre>
+        <script type="text/javascript">
 
-	</body>
-	
+            const imageURLs = [
+                'img/memes/3803067.jpg'
+               ,'img/memes/5167505.jpg'
+               ,'img/memes/the-air-pollution.jpg'
+               ,'img/memes/you-wont-mind-air-pollution-if-youre-already-dead.jpg'
+            ];
+
+            function randomArrayShuffle(array) {
+                var currentIndex = array.length, temporaryValue, randomIndex;
+                while (0 !== currentIndex) {
+                  randomIndex = Math.floor(Math.random() * currentIndex);
+                  currentIndex -= 1;
+                  temporaryValue = array[currentIndex];
+                  array[currentIndex] = array[randomIndex];
+                  array[randomIndex] = temporaryValue;
+                }
+              }
+
+          </script>
+
+        <script type="text/javascript">
+
+            function getImageTag(input) {
+
+                var img = '<img src=\"';
+                img += imageURLs[input];
+                img += '\" alt=\"Bestes Meme\"';
+                img += '\" class=\"portfolio__img\"/>';
+                return img;
+
+            }
+          </script>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EhrenWetter</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:ital@1&display=swap" rel="stylesheet"> 
+
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+    <body>
+
+        
+        <header>
+
+            <div class="logo">
+                <img src="img/logo-removebg-preview.png" alt="">
+            </div> 
+
+            <button class="nav__toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+            
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
+                    <li class="nav__item"><a href="#services" class="nav__link">Wetter Für Heute</a></li>
+                    <li class="nav__item"><a href="#about" class="nav__link">Luftverschmutzung</a></li>
+                    <li class="nav__item"><a href="#work" class="nav__link">Memes</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Head -->
+        <section class="intro" id="home">
+            <h1 class="section__title section__title--intro">
+                Willkommen bei der <strong>besten</strong> Wetterwebsite der Welt
+            </h1>
+            <div class="blendbox"></div>
+            <p class="section__subtitle section__subtitle--intro">Professionel - Kompetent - Ehrlich</p>
+            <img src="img/memes/air-pollution-everywhere-xpms38.jpg" alt="Kacke das Bild geht nich" class="intro__img">
+        </section>
+
+
+        <!-- Wetter -->
+        <section class="my-services" id="services">
+            <h2 class="section__title section__title--services">  
+                <!--Wetterdaten für heute--> 
+                <input type = "button" onclick = "GetAPI()" value = "Wetter Anzeigen">
+                <pre id="json"></pre></h2>
+            <div class="services">
+
+                <div class="service">
+                    <h3>Wetter</h3>
+                    <p>
+                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                        dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                    </p>
+                </div>
+
+            </div>
+
+            <a href="#work" class="btn">Zu den Memes</a>
+        </section>
+
+
+        <!-- ALuftverschmutzung -->
+        <section class="about-me" id="about">
+            <h2 class="section__title section__title--about">Luftverschmutzung</h2>
+            <p class="section__subtitle section__subtitle--about">Sieht nicht gut aus</p>
+
+            <div class="about-me__body">
+
+                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+
+                <p> "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, 
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
+                    dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." </p>
+
+            </div>
+
+            <img src="img/memes/4570772.jpg" alt="Eigentlich N Anderes Bild Aber Naja" class="about-me__img">
+        </section>
+
+        <!-- Memes -->
+        <section class="my-work" id="work">
+            <h2 class="section__title section__title--work">Memes</h2>
+            <p class="section__subtitle section__subtitle--work">Freshe Memes zum Wochenbeginn</p>
+
+            <div class="portfolio">
+                
+                <script type="text/javascript">
+                    randomArrayShuffle(imageURLs);
+                </script>
+
+                <a href="#" class="portfolio__item">
+                    <script type="text/javascript">
+                        document.write(getImageTag(0));
+                    </script>
+                </a>
+
+                <a href="#" class="portfolio__item">
+                    <script type="text/javascript">
+                        document.write(getImageTag(1));
+                    </script>
+                </a>
+
+                <a href="#" class="portfolio__item">
+                    <script type="text/javascript">
+                        document.write(getImageTag(2));
+                    </script>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+
+        <footer class="footer">
+            <a href="mailto:mattheo.wollmer@ulricianum-aurich.de" class="footer__link">mattheo.wollmer@ulricianum-aurich.de</a>
+            <ul class="social-list">
+
+                <!-- Ulricianum -->
+
+                <li class="social-list__item">
+                <a class="social-list__link" href="https://www.ulricianum-aurich.net/" target="_blank">
+                <i class="fa-solid fa-graduation-cap"></i>
+                </a></li>
+
+            </ul>
+        </footer>
+
+        <script src="js/index.js"></script>
+
+    </body>
 </html>
