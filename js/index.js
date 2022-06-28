@@ -18,12 +18,6 @@ function GetAPI() {
 		console.log(pureJson);
 
 		document.getElementById("json").textContent = pureJson;
-  
-        /*document.write("<b>" + "Coord -> " 
-            + "lon : " + "</b>" +
-            pureJson[0].list["main"]);*/
-	
-	/*return data*/
 
 	}).catch(err => {
                 
