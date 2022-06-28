@@ -10,12 +10,18 @@ function GetAPI() {
 		var obj = JSON.parse(pureJson);
 		delete obj.coord;
 
-		for (var i = 0; i <= Object.keys(obj.list).length / 2; i++) {
+		for (var i = 0; i <= Object.keys(obj.list).length - 1; i++) {
+			var luft = new Array();
+			var zeit = new Array();
+			
 			delete obj.list[i].components;
-		}
 
-		pureJson = JSON.stringify(obj);
-		console.log(pureJson);
+			luft[i] = obj.list[i].main.aqi;
+			zeit[i] = obj.list[i].dt;
+
+			console.log(luft[i]);
+			console.log(zeit[i]);
+		}
 
 		document.getElementById("json").textContent = pureJson;
 
